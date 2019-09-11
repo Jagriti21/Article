@@ -65,7 +65,7 @@
 </div>
 <h3>Article Details</h3>
 <table>
-  <tr><th> Id</th> <th>Title</th><th>Category</th><th>Author Name</th><th>Tags</th></tr>
+  <tr><th> Id</th> <th>Title</th><th>Category</th><th>Author Name</th><th>Tags</th><th></th><th></th></tr>
   <tr *ngFor="let article of allArticles" >
     <td>{{article.articleId}}</td> <td>{{article.title}}</td> <td>{{article.category}}</td><td>{{article.authorName}}</td> <td>{{article.tags}}</td>
 	<td><button type="button" (click)="loadArticleToEdit(article.articleId)">Edit</button> </td> 
