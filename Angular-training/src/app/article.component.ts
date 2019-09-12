@@ -21,7 +21,8 @@ export class ArticleComponent implements OnInit {
        title: new FormControl('', Validators.required),
        category: new FormControl('', Validators.required),
        authorName: new FormControl('', Validators.required) ,
-       tags: new FormControl('', Validators.required)  
+       tags: new FormControl('', Validators.required),
+       dateTime1: new FormControl('', Validators.required)   
    });
    //Create constructor to get service instance
    constructor(private articleService: ArticleService) {
@@ -53,11 +54,12 @@ export class ArticleComponent implements OnInit {
       let category = this.articleForm.get('category').value.trim();	
       let authorName= this.articleForm.get('authorName').value.trim();	
       let tags = this.articleForm.get('tags').value.trim();	
+      let dateTime1 = this.articleForm.get('dateTime1').value.trim();	
       
       
 	  if (this.articleIdToUpdate === null) {  
 	    //Handle create article
-	    let article= new Article(null, title, category, authorName,tags);	  
+	    let article= new Article(null, title, category, authorName,tags, dateTime1);	  
 	    this.articleService.createArticle(article)
 	      .subscribe(successCode => {
 		            this.statusCode = successCode;
@@ -67,7 +69,7 @@ export class ArticleComponent implements OnInit {
 		        errorCode => this.statusCode = errorCode);
 	  } else {  
    	    //Handle update article
-       let article= new Article(this.articleIdToUpdate, title, category, authorName,tags);	  
+       let article= new Article(this.articleIdToUpdate, title, category, authorName,tags, dateTime1);	  
       
 	    this.articleService.updateArticle(article)
 	      .subscribe(successCode => {
@@ -86,7 +88,7 @@ export class ArticleComponent implements OnInit {
       this.articleService.getArticleById(articleId)
 	      .subscribe(article => {
 		            this.articleIdToUpdate = article.articleId;   
-		            this.articleForm.setValue({ title: article.title, category: article.category,authorName: article.authorName,tags: article.tags });
+		            this.articleForm.setValue({ title: article.title, category: article.category,authorName: article.authorName,tags: article.tags, dateTime1: article.dateTime1 });
 					this.processValidation = true;
 					this.requestProcessing = false;   
 		        },

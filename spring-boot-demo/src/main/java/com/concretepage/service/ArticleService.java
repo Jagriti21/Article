@@ -22,7 +22,7 @@ public class ArticleService implements IArticleService {
 	}
 	@Override
 	public synchronized boolean createArticle(Article article){
-       if (articleDAO.articleExists(article.getTitle(), article.getCategory(),article.getAuthorName(), article.getTags())) {
+       if (articleDAO.articleExists(article.getTitle(), article.getCategory(),article.getAuthorName(), article.getTags(), article.getDateTime1())) {
     	   return false;
        } else {
     	   articleDAO.createArticle(article);

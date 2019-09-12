@@ -23,6 +23,7 @@ export class ArticleService {
     }
 	//Create article
     createArticle(article: Article):Observable<number> {
+		console.log(article.dateTime1);
 	    let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: cpHeaders });
         return this.http.post(this.articleUrl, article, options)

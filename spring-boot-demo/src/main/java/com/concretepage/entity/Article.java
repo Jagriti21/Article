@@ -23,6 +23,8 @@ public class Article implements Serializable {
     private String title;
 	@Column(name="category")	
 	private String category;
+	@Column(name="date_time")	
+	private String dateTime1;
 	public int getArticleId() {
 		return articleId;
 	}
@@ -55,6 +57,12 @@ public class Article implements Serializable {
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public String getDateTime1() {
+		return dateTime1;
+	}
+	public void setDateTime1(String dateTime1) {
+		this.dateTime1 = dateTime1;
 	}
 	
 	

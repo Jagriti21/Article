@@ -24,7 +24,12 @@
     <tr><td>Enter Tags</td><td><input formControlName="tags">
   <label *ngIf="articleForm.get('tags').invalid && processValidation" [ngClass] = "'error'"> Tags is required. </label>
 
-</td></tr>	
+</td></tr>
+<tr><td>Enter Date/Time</td><td><input type="datetime-local" formControlName="dateTime1" >
+  <label *ngIf="articleForm.get('dateTime1').invalid && processValidation" [ngClass] = "'error'"> Date Time is required. </label>
+
+</td></tr>
+	
         <tr><td colspan="2">
           <button *ngIf="!articleIdToUpdate">CREATE</button>  
         <button *ngIf="articleIdToUpdate">UPDATE</button>  
@@ -65,9 +70,9 @@
 </div>
 <h3>Article Details</h3>
 <table>
-  <tr><th> Id</th> <th>Title</th><th>Category</th><th>Author Name</th><th>Tags</th><th></th><th></th></tr>
+  <tr><th> Id</th> <th>Title</th><th>Category</th><th>Author Name</th><th>Tags</th><th>Date/Time</th><th></th><th></th></tr>
   <tr *ngFor="let article of allArticles" >
-    <td>{{article.articleId}}</td> <td>{{article.title}}</td> <td>{{article.category}}</td><td>{{article.authorName}}</td> <td>{{article.tags}}</td>
+    <td>{{article.articleId}}</td> <td>{{article.title}}</td> <td>{{article.category}}</td><td>{{article.authorName}}</td> <td>{{article.tags}}</td><td>{{article.dateTime1}}</td>
 	<td><button type="button" (click)="loadArticleToEdit(article.articleId)">Edit</button> </td> 
 	<td><button type="button" (click)="deleteArticle(article.articleId)">Delete</button></td>
   </tr>

@@ -7,6 +7,6 @@ public interface IArticleDAO {
     void createArticle(Article article);
     void updateArticle(Article article);
     void deleteArticle(int articleId);
-    boolean articleExists(String title, String category, String authorName, String tags);
+    boolean articleExists(String title, String category, String authorName, String tags, String dateTime1);
 }
  
