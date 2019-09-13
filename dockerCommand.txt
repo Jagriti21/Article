@@ -1,0 +1,6 @@
+dockerx build -f Dockerfile -t jagritiarticle .
+
+dockerx run -p 8080:6123 jagritiarticle
+
+dockerx images
+ 
